@@ -20,6 +20,16 @@ class NewsImage(Base):
     image_url = Column(String)
     
     news = relationship("News", back_populates="images")
+    
+    def __repr__(self):
+        # Показываем имя файла вместо объекта
+        if self.image_url:
+            filename = self.image_url.split('/')[-1]
+            return f"📷 {filename}"
+        return "📷 Без фото"
+    
+    def __str__(self):
+        return self.__repr__()
 
 class Specialty(Base):
     __tablename__ = "specialties"
