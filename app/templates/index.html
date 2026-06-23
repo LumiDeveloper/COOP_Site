@@ -24,7 +24,7 @@
             padding: 0 30px;
         }
 
-        /* ===== МЕНЮ (нормальное) ===== */
+        /* ===== МЕНЮ ===== */
         .header {
             display: flex;
             justify-content: space-between;
@@ -44,23 +44,33 @@
 
         .nav {
             display: flex;
-            gap: 24px;
+            gap: 16px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .nav a {
             text-decoration: none;
             font-weight: 600;
-            font-family: inherit;
             color: #1f2e3a;
             padding: 8px 18px;
             border-radius: 50px;
             transition: all 0.2s ease;
+            font-size: 0.95rem;
         }
 
         .nav a:hover {
             background: #01AABD;
             color: white;
+        }
+
+        .nav a.sved-link {
+            background: #01AABD;
+            color: white;
+        }
+
+        .nav a.sved-link:hover {
+            background: #018092;
         }
 
         /* ===== ГЕРОЙ ===== */
@@ -185,7 +195,7 @@
             line-height: 1.4;
         }
 
-        /* ===== НОВОСТИ (карточки с фоном) ===== */
+        /* ===== НОВОСТИ ===== */
         .news-section {
             margin-bottom: 70px;
         }
@@ -237,12 +247,6 @@
             font-weight: 700;
             margin-bottom: 8px;
             color: white;
-        }
-
-        .news-desc-overlay {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 12px;
         }
 
         .news-badge {
@@ -361,6 +365,13 @@
             overflow: hidden;
         }
 
+        /* ===== ПОДВАЛ ===== */
+        .footer {
+            text-align: center;
+            padding: 30px 0 50px;
+            color: #7c9aa8;
+        }
+
         /* ===== АДАПТИВ ===== */
         @media (max-width: 1024px) {
             .wrapper { padding: 0 20px; }
@@ -374,6 +385,8 @@
 
         @media (max-width: 860px) {
             .news-grid { grid-template-columns: 1fr; }
+            .nav { gap: 8px; justify-content: center; }
+            .nav a { font-size: 0.85rem; padding: 6px 12px; }
         }
 
         @media (max-width: 680px) {
@@ -389,9 +402,10 @@
         <div class="nav">
             <a href="/">Главная</a>
             <a href="/about">О нас</a>
-            <a href="/admission">Поступление</a>
+            <a href="/apply">Поступление</a>
             <a href="/students">Студентам</a>
             <a href="/contacts">Контакты</a>
+            <a href="/info" class="sved-link">Сведения</a>
         </div>
     </div>
 
@@ -409,22 +423,21 @@
     <div class="quick-section">
         <div class="section-title">Сведения об образовательной организации</div>
         <div class="quick-grid">
-            <a href="#" class="quick-card"><div class="quick-icon">🏛️</div><h3>Основные сведения</h3><p>История, лицензии, документы</p></a>
-            <a href="#" class="quick-card"><div class="quick-icon">📚</div><h3>Образование</h3><p>Направления и формы обучения</p></a>
-            <a href="#" class="quick-card"><div class="quick-icon">👥</div><h3>Руководство</h3><p>Администрация и преподаватели</p></a>
-            <a href="#" class="quick-card"><div class="quick-icon">📢</div><h3>Приёмная комиссия</h3><p>Правила поступления и контакты</p></a>
+            <a href="/info" class="quick-card"><div class="quick-icon">🏛️</div><h3>Основные сведения</h3><p>История, лицензии, документы</p></a>
+            <a href="/info" class="quick-card"><div class="quick-icon">📚</div><h3>Образование</h3><p>Направления и формы обучения</p></a>
+            <a href="/info" class="quick-card"><div class="quick-icon">👥</div><h3>Руководство</h3><p>Администрация и преподаватели</p></a>
+            <a href="/info" class="quick-card"><div class="quick-icon">📢</div><h3>Приёмная комиссия</h3><p>Правила поступления и контакты</p></a>
         </div>
     </div>
 
     <div class="news-section">
         <div class="section-title">📰 Новости КТТО</div>
         <div class="news-grid">
-            {% for item in news %}
+            {% for item in news[:3] %}
             <a href="/news/{{ item.id }}" class="news-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('{{ item.image_url or '/static/placeholder.jpg' }}'); background-size: cover; background-position: center;">
                 <div class="news-content-overlay">
                     <div class="news-date-overlay">{{ item.date }}</div>
                     <div class="news-title-overlay">{{ item.title }}</div>
-                    <!-- ↓↓↓ УБРАЛИ ОПИСАНИЕ ↓↓↓ -->
                     <span class="news-badge">Читать →</span>
                 </div>
             </a>
@@ -460,7 +473,9 @@
         </div>
     </div>
 
-    <div style="text-align: center; padding: 30px 0 50px; color: #7c9aa8;">Кооперативный техникум Тамбовского Облпотребсоюза — качественное образование с 1923 года</div>
+    <div class="footer">
+        Кооперативный техникум Тамбовского Облпотребсоюза — качественное образование с 1923 года
+    </div>
 </div>
 </body>
 </html>

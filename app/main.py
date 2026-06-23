@@ -84,6 +84,10 @@ async def get_about_page(request: Request):
 async def get_admission_page(request: Request):
     return templates.TemplateResponse(request, "admission.html", {"request": request})
 
+@app.get("/info", response_class=HTMLResponse)
+async def get_info_page(request: Request):
+    return templates.TemplateResponse(request, "info.html", {"request": request})
+
 @app.get("/contacts", response_class=HTMLResponse)
 async def get_contacts_page(request: Request):
     return templates.TemplateResponse(request, "contacts.html", {"request": request})
