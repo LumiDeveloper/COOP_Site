@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>КТТО — О нас</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background: #ffffff;
             font-family: 'Open Sans', 'Roboto', 'PT Sans', sans-serif;
             color: #1f2e3a;
         }
-        .wrapper { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
 
-        /* ===== МЕНЮ (как на главной) ===== */
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ===== МЕНЮ ===== */
         .header {
             display: flex;
             justify-content: space-between;
@@ -24,17 +35,68 @@
             gap: 20px;
             margin-bottom: 40px;
         }
-        .logo img { height: 55px; object-fit: contain; }
-        .nav { display: flex; gap: 24px; flex-wrap: wrap; }
-        .nav a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #1f2e3a;
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: all 0.2s ease;
+
+        .logo img {
+            height: 55px;
+            object-fit: contain;
         }
-        .nav a:hover, .nav a.active { background: #01AABD; color: white; }
+
+        .nav{
+            display:flex;
+            align-items:center;
+            gap:24px;
+            flex-wrap:wrap;
+        }
+
+        .nav>a,.dropdown>a{
+            text-decoration:none;
+            font-weight:600;
+            color:#1f2e3a;
+            padding:8px 18px;
+            border-radius:50px;
+            transition:.2s;
+            display:block;
+        }
+
+        .nav>a:hover,.dropdown>a:hover{
+            background:#01AABD;
+            color:white;
+        }
+
+        .dropdown{
+            position:relative;
+        }
+
+        .dropdown-menu{
+            position:absolute;
+            top:100%;
+            left:0;
+            background:white;
+            min-width:220px;
+            border-radius:18px;
+            padding:12px;
+            box-shadow:0 15px 35px rgba(0,0,0,.12);
+            display:none;
+            z-index:100;
+        }
+
+        .dropdown:hover .dropdown-menu{
+            display:block;
+        }
+
+        .dropdown-menu a{
+            display:block;
+            text-decoration:none;
+            color:#1f2e3a;
+            padding:10px 14px;
+            border-radius:12px;
+            font-weight:500;
+        }
+
+        .dropdown-menu a:hover{
+            background:#01AABD;
+            color:white;
+        }
 
         /* ===== СТРАНИЦА ===== */
         .page-title {
@@ -43,6 +105,7 @@
             margin: 20px 0 40px;
             color: #0F172A;
         }
+
         .content-placeholder {
             background: #F8FAFC;
             border-radius: 48px;
@@ -57,44 +120,67 @@
             flex-direction: column;
             gap: 24px;
         }
+
         .content-placeholder h2 {
             font-size: 1.8rem;
             color: #01AABD;
         }
+
         .content-placeholder p {
             color: #475569;
             max-width: 600px;
         }
 
         @media (max-width: 860px) {
-            .wrapper { padding: 0 20px; }
-            .header { flex-direction: column; align-items: stretch; text-align: center; }
-            .nav { justify-content: center; gap: 12px; }
-            .nav a { padding: 8px 14px; background: #f0f6f8; }
-            .page-title { font-size: 1.8rem; text-align: center; }
-            .content-placeholder { padding: 40px 24px; }
+            .wrapper {
+                padding: 0 20px;
+            }
+
+        .header {
+            flex-direction: column;
+            align-items: stretch;
+            text-align: center;
+        }
+
+        .nav {
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .nav a {
+            padding: 8px 14px;
+            background: #f0f6f8;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .content-placeholder {
+            padding: 40px 24px;
+        }
+
+        
+
         }
     </style>
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="header">
-        <div class="logo"><img src="src/logoKTTO.jpg" alt="Логотип"></div>
-        <div class="nav">
-            <a href="/">Главная</a>
-            <a href="/about" class="active">О нас</a>
-            <a href="/admission">Поступление</a>
-            <a href="/students">Студентам</a>
-            <a href="/contacts">Контакты</a>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo"><img src="src/logoKTTO.jpg" alt="Логотип"></div>
+            {% include "components/navbar.html" %}
+        </div>
+
+        <div class="page-title">О нас</div>
+        <div class="content-placeholder">
+            <h2>История и традиции</h2>
+            <p>Здесь будет размещена информация о техникуме: история, руководство, достижения, лицензии и другая
+                официальная информация.</p>
         </div>
     </div>
-
-    <div class="page-title">О нас</div>
-    <div class="content-placeholder">
-        <h2>📖 История и традиции</h2>
-        <p>Здесь будет размещена информация о техникуме: история, руководство, достижения, лицензии и другая официальная информация.</p>
-        <p style="font-size: 0.85rem;">(Контент появится после подключения FastAPI)</p>
-    </div>
-</div>
 </body>
+
 </html>

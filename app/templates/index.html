@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -47,6 +48,56 @@
             gap: 16px;
             flex-wrap: wrap;
             align-items: center;
+        }
+
+        /* ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown>a {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            background: white;
+            min-width: 260px;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: 0.25s ease;
+            z-index: 1000;
+        }
+
+        /* появление меню */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* пункты меню */
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            border-radius: 14px;
+            color: #1f2e3a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a:hover {
+            background: #01AABD;
+            color: white;
         }
 
         .nav a {
@@ -125,7 +176,7 @@
             cursor: pointer;
             transition: 0.2s;
             font-family: inherit;
-            box-shadow: 0 4px 10px rgba(1,170,189,0.3);
+            box-shadow: 0 4px 10px rgba(1, 170, 189, 0.3);
         }
 
         .hero-image img {
@@ -166,13 +217,13 @@
             text-decoration: none;
             color: #1E293B;
             border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .quick-card:hover {
             transform: translateY(-4px);
             border-color: #01AABD;
-            box-shadow: 0 12px 24px -12px rgba(1,170,189,0.2);
+            box-shadow: 0 12px 24px -12px rgba(1, 170, 189, 0.2);
             background: #ffffff;
         }
 
@@ -222,7 +273,7 @@
 
         .news-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 32px -12px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.3);
         }
 
         .news-content-overlay {
@@ -231,7 +282,7 @@
             left: 0;
             right: 0;
             padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             border-radius: 40px;
         }
 
@@ -268,13 +319,13 @@
             font-weight: 600;
             text-decoration: none;
             transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(1,170,189,0.3);
+            box-shadow: 0 4px 12px rgba(1, 170, 189, 0.3);
         }
 
         .all-news-btn:hover {
             background-color: #018092;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(1,170,189,0.4);
+            box-shadow: 0 8px 20px rgba(1, 170, 189, 0.4);
         }
 
         /* ===== НАПРАВЛЕНИЯ ===== */
@@ -305,7 +356,7 @@
 
         .dir-item:hover {
             transform: translateX(8px);
-            box-shadow: 0 12px 20px -12px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.1);
         }
 
         .dir-img {
@@ -350,7 +401,7 @@
         }
 
         .contact-icon {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             width: 52px;
             height: 52px;
             border-radius: 30px;
@@ -374,108 +425,282 @@
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 1024px) {
-            .wrapper { padding: 0 20px; }
-            .hero { flex-direction: column; text-align: center; padding: 36px 28px; }
-            .hero-image img { max-width: 240px; }
-            .quick-grid { grid-template-columns: repeat(2, 1fr); }
-            .quick-section { padding: 36px 32px; }
-            .dir-item { flex-direction: column; text-align: center; }
-            .contacts { grid-template-columns: 1fr; }
+            .wrapper {
+                padding: 0 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 36px 28px;
+            }
+
+            .hero-image img {
+                max-width: 240px;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-section {
+                padding: 36px 32px;
+            }
+
+            .dir-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contacts {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 860px) {
-            .news-grid { grid-template-columns: 1fr; }
-            .nav { gap: 8px; justify-content: center; }
-            .nav a { font-size: 0.85rem; padding: 6px 12px; }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                gap: 8px;
+                justify-content: center;
+            }
+
+            .nav a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
         }
 
         @media (max-width: 680px) {
-            .quick-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 1.5rem; }
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="header">
-        <div class="logo"><img src="/src/logoKTTO.jpg" alt="Логотип КТТО"></div>
-        <div class="nav">
-            <a href="/">Главная</a>
-            <a href="/about">О нас</a>
-            <a href="/apply">Поступление</a>
-            <a href="/students">Студентам</a>
-            <a href="/contacts">Контакты</a>
-            <a href="/info" class="sved-link">Сведения</a>
-        </div>
-    </div>
-
-    <div class="hero">
-        <div class="hero-text">
-            <h1>Кооперативный техникум<br><span class="accent">Тамбовского Облпотребсоюза</span></h1>
-            <p>Одно из старейших учебных заведений СПО России. Основан в 1923 году. Готовим специалистов для потребительской кооперации, государственного хозяйства и предпринимательства.</p>
-            <button class="btn" onclick="location.href='/apply'">Поступить онлайн →</button>
-        </div>
-        <div class="hero-image">
-            <img src="/src/tech.jpg" alt="Здание техникума">
-        </div>
-    </div>
-
-    <div class="quick-section">
-        <div class="section-title">Сведения об образовательной организации</div>
-        <div class="quick-grid">
-            <a href="/info" class="quick-card"><div class="quick-icon">🏛️</div><h3>Основные сведения</h3><p>История, лицензии, документы</p></a>
-            <a href="/info" class="quick-card"><div class="quick-icon">📚</div><h3>Образование</h3><p>Направления и формы обучения</p></a>
-            <a href="/info" class="quick-card"><div class="quick-icon">👥</div><h3>Руководство</h3><p>Администрация и преподаватели</p></a>
-            <a href="/info" class="quick-card"><div class="quick-icon">📢</div><h3>Приёмная комиссия</h3><p>Правила поступления и контакты</p></a>
-        </div>
-    </div>
-
-    <div class="news-section">
-        <div class="section-title">📰 Новости КТТО</div>
-        <div class="news-grid">
-            {% for item in news[:3] %}
-            <a href="/news/{{ item.id }}" class="news-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('{{ item.image_url or '/static/placeholder.jpg' }}'); background-size: cover; background-position: center;">
-                <div class="news-content-overlay">
-                    <div class="news-date-overlay">{{ item.date }}</div>
-                    <div class="news-title-overlay">{{ item.title }}</div>
-                    <span class="news-badge">Читать →</span>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <img src="/src/logoKTTO.jpg" alt="Логотип КТТО">
+            </div>
+            <div class="nav">
+                <a href="/">Главная</a>
+                <div class="dropdown">
+                    <a href="/about">О нас ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="/about">История и традиции</a>
+                        <a href="/about">Руководство</a>
+                        <a href="/about">Достижения</a>
+                        <a href="/about">Документы</a>
+                        <a href="/about">Лицензии</a>
+                    </div>
                 </div>
-            </a>
-            {% endfor %}
+                <div class="dropdown">
+                    <a href="/admission">
+                        Поступление ▾
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/admission">
+                            Условия поступления
+                        </a>
+                        <a href="/admission">
+                            Документы
+                        </a>
+                        <a href="/admission">
+                            Специальности
+                        </a>
+                        <a href="/apply">
+                            Подать заявку
+                        </a>
+                        <a href="/admission">
+                            Проходные баллы
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/students">
+                        Студентам ▾
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/students">
+                            Расписание
+                        </a>
+                        <a href="/students">
+                            Стипендии
+                        </a>
+                        <a href="/students">
+                            Общежитие
+                        </a>
+                        <a href="/students">
+                            Практика
+                        </a>
+                        <a href="/students">
+                            Библиотека
+                        </a>
+                        <a href="/students">
+                            Внеучебная деятельность
+                        </a>
+                    </div>
+                </div>
+                <a href="/contacts">
+                    Контакты
+                </a>
+            </div>
         </div>
-        <div style="text-align: center;">
-            <a href="/all-news" class="all-news-btn">📰 Смотреть все новости техникума →</a>
-        </div>
-    </div>
 
-    <div class="directions">
-        <div class="section-title">🎓 Направления подготовки</div>
-        <div class="dir-grid">
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/Банковское.png');"></div><div class="dir-info"><h4>Банковское дело</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/Юриспруденция.png');"></div><div class="dir-info"><h4>Юриспруденция</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/ЭкономикаИБухУчет.png');"></div><div class="dir-info"><h4>Экономика и бухучет</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/Поварское.png');"></div><div class="dir-info"><h4>Поварское дело</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/ИнформационныеСистемы.png');"></div><div class="dir-info"><h4>Информационные системы</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/Финансы.png');"></div><div class="dir-info"><h4>Финансы</h4><span class="dir-arrow">Подробнее →</span></div></a>
-            <a href="#" class="dir-item"><div class="dir-img" style="background-image: url('/src/Коммерция.png');"></div><div class="dir-info"><h4>Коммерция</h4><span class="dir-arrow">Подробнее →</span></div></a>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Кооперативный техникум<br><span class="accent">Тамбовского Облпотребсоюза</span></h1>
+                <p>Одно из старейших учебных заведений СПО России. Основан в 1923 году. Готовим специалистов для
+                    потребительской кооперации, государственного хозяйства и предпринимательства.</p>
+                <button class="btn" onclick="location.href='/apply'">Поступить онлайн →</button>
+            </div>
+            <div class="hero-image">
+                <img src="/src/tech.jpg" alt="Здание техникума">
+            </div>
         </div>
-    </div>
 
-    <div class="contacts">
-        <div>
-            <div class="contact-line"><div class="contact-icon">📞</div> +7 (4752) 55-66-77 — Приемная комиссия</div>
-            <div class="contact-line"><div class="contact-icon">💬</div> vk.com/cooptech68</div>
-            <div class="contact-line"><div class="contact-icon">✈️</div> @ktto_tambov</div>
-            <div class="contact-line"><div class="contact-icon">📍</div> г. Тамбов, ул. Советская, 123</div>
+        <div class="quick-section">
+            <div class="section-title">Сведения об образовательной организации</div>
+            <div class="quick-grid">
+                <a href="/info" class="quick-card">
+                    <div class="quick-icon">🏛️</div>
+                    <h3>Основные сведения</h3>
+                    <p>История, лицензии, документы</p>
+                </a>
+                <a href="/info" class="quick-card">
+                    <div class="quick-icon">📚</div>
+                    <h3>Образование</h3>
+                    <p>Направления и формы обучения</p>
+                </a>
+                <a href="/info" class="quick-card">
+                    <div class="quick-icon">👥</div>
+                    <h3>Руководство</h3>
+                    <p>Администрация и преподаватели</p>
+                </a>
+                <a href="/info" class="quick-card">
+                    <div class="quick-icon">📢</div>
+                    <h3>Приёмная комиссия</h3>
+                    <p>Правила поступления и контакты</p>
+                </a>
+            </div>
         </div>
-        <div class="map">
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2af0320f3819a376aedf8a87d5941800f455184d4a3337ac3abb1f91bc39bf0f&amp;width=100%25&amp;height=280&amp;lang=ru_RU&amp;scroll=true"></script>
-        </div>
-    </div>
 
-    <div class="footer">
-        Кооперативный техникум Тамбовского Облпотребсоюза — качественное образование с 1923 года
+        <div class="news-section">
+            <div class="section-title">Новости КТТО</div>
+            <div class="news-grid">
+                {% for item in news[:3] %}
+                <a href="/news/{{ item.id }}" class="news-card"
+                    style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2)), url('{{ item.image_url or '/static/placeholder.jpg' }}'); background-size: cover; background-position: center;">
+                    <div class="news-content-overlay">
+                        <div class="news-date-overlay">{{ item.date }}</div>
+                        <div class="news-title-overlay">{{ item.title }}</div>
+                        <span class="news-badge">Читать →</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <div style="text-align: center;">
+                <a href="/all-news" class="all-news-btn">Смотреть все новости техникума →</a>
+            </div>
+        </div>
+
+        <div class="directions">
+            <div class="section-title">🎓 Направления подготовки</div>
+            <div class="dir-grid">
+
+                <a href="/specialties?item=bank" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/Банковское.png');"></div>
+                    <div class="dir-info">
+                        <h4>Банковское дело</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=law" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/Юриспруденция.png');"></div>
+                    <div class="dir-info">
+                        <h4>Юриспруденция</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=economy" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/ЭкономикаИБухУчет.png');"></div>
+                    <div class="dir-info">
+                        <h4>Экономика и бухучет</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=cook" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/Поварское.png');"></div>
+                    <div class="dir-info">
+                        <h4>Поварское дело</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=info" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/ИнформационныеСистемы.png');"></div>
+                    <div class="dir-info">
+                        <h4>Информационные системы</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=finance" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/Финансы.png');"></div>
+                    <div class="dir-info">
+                        <h4>Финансы</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+                <a href="/specialties?item=commerce" class="dir-item">
+                    <div class="dir-img" style="background-image:url('/src/Коммерция.png');"></div>
+                    <div class="dir-info">
+                        <h4>Коммерция</h4>
+                        <span class="dir-arrow">Подробнее →</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="contacts">
+            <div>
+                <div class="contact-line">
+                    <div class="contact-icon">📞</div> +7 (4752) 55-66-77 — Приемная комиссия
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">💬</div> vk.com/cooptech68
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">✈️</div> @ktto_tambov
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">📍</div> г. Тамбов, ул. Советская, 123
+                </div>
+            </div>
+            <div class="map">
+                <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2af0320f3819a376aedf8a87d5941800f455184d4a3337ac3abb1f91bc39bf0f&amp;width=100%25&amp;height=280&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+        </div>
+
+        <div class="footer">
+            Кооперативный техникум Тамбовского Облпотребсоюза — качественное образование с 1923 года
+        </div>
     </div>
-</div>
 </body>
+
 </html>

@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 from datetime import datetime
+from enum import Enum
 
 class News(Base):
     __tablename__ = "news"
@@ -44,3 +45,31 @@ class Application(Base):
     fio = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class UserRole(str, Enum):
+    STUDENT = "student"
+    PARENT = "parent"
+    TEACHER = "teacher"
+
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(
+        String,
+        unique=True,
+        nullable=False
+    )
+    password_hash = Column(
+        String,
+        nullable=False
+    )
+    role = Column(
+        String,
+        default=UserRole.STUDENT.value
+    )
+    is_active = Column(
+        Integer,
+        default=1
+    )

@@ -168,13 +168,12 @@
             {% if success %}
                 <!-- Если заявка успешно отправлена -->
                 <div class="success-box">
-                    <span class="success-icon">📞</span>
                     <h2>Заявка успешно принята!</h2>
                     <p>Мы Вам позвоним в ближайшее время.</p>
                 </div>
             {% else %}
                 <!-- Обычное состояние формы -->
-                <h2>✍️ Заполните анкету обратной связи</h2>
+                <h2>Заполните анкету обратной связи</h2>
                 <form action="/apply" method="POST">
                     <div class="form-group">
                         <label for="fio">ФИО Абитуриента</label>
