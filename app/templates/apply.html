@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Поступить онлайн - КТТО</title>
+    <link rel="stylesheet" href="/static/css/header.css">
     <style>
         :root {
             --primary: #00a0e3;
@@ -12,15 +13,8 @@
             --bg-light: #f4f7f6;
             --success: #2ecc71;
         }
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); }
-        
-        .header { background: white; padding: 15px 0; border-bottom: 1px solid #e1e8ed; position: sticky; top: 0; z-index: 100; }
-        .header-container { max-width: 1140px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo span { border-left: 2px solid var(--primary); padding-left: 8px; }
-        .nav-menu { display: flex; gap: 25px; }
-        .nav-menu a { text-decoration: none; color: var(--text-dark); font-size: 14px; font-weight: 500; }
+        * { margin: 0; box-sizing: border-box; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--bg-light); color: var(--text-dark); line-height: 1.5;}
 
         .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         
@@ -54,69 +48,13 @@
         .success-box h2 { margin: 0 0 10px 0; font-size: 22px; }
         .success-box p { margin: 0; font-size: 16px; font-weight: 500; }
 
-        /* ===== МЕНЮ ===== */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 3px solid #01AABD;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .logo img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .nav {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .nav a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #1f2e3a;
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-        }
-
-        .nav a:hover {
-            background: #01AABD;
-            color: white;
-        }
-
-        .nav a.sved-link {
-            background: #01AABD;
-            color: white;
-        }
-
-        .nav a.sved-link:hover {
-            background: #018092;
-        }
+        
+        
     </style>
 </head>
 <body>
 
-        <div class="header">
-            <div class="logo"><img src="/src/logoKTTO.jpg" alt="Логотип КТТО"></div>
-            <div class="nav">
-                <a href="/">Главная</a>
-                <a href="/about">О нас</a>
-                <a href="/apply">Поступление</a>
-                <a href="/students">Студентам</a>
-                <a href="/contacts">Контакты</a>
-                <a href="/info" class="sved-link">Сведения</a>
-            </div>
-        </div>
+    {% include "components/header.html" %}
 
     <div class="container">
         <h1>Поступление в КТТО онлайн</h1>

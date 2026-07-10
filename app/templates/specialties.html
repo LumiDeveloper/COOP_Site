@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>КТТО — Специальности</title>
-
+    <link rel="stylesheet" href="/static/css/header.css">
     <style>
         * {
             margin: 0;
@@ -22,30 +22,6 @@
             max-width: 1400px;
             margin: auto;
             padding: 0 30px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 3px solid #01AABD;
-            margin-bottom: 40px;
-        }
-
-        .logo img {
-            height: 55px;
-        }
-
-        .nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #1f2e3a;
-            font-weight: 600;
         }
 
         .page-title {
@@ -120,32 +96,15 @@
         }
 
         @media(max-width:800px) {
-
             .dir-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .header {
-                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <div class="header">
-            <div class="logo">
-                <img src="/src/logoKTTO.jpg">
-            </div>
-
-            <div class="nav">
-                <a href="/">Главная</a>
-                <a href="/about">О нас</a>
-                <a href="/admission">Поступление</a>
-                <a href="/students">Студентам</a>
-                <a href="/contacts">Контакты</a>
-            </div>
-        </div>
+        {% include "components/header.html" %}
         <div class="page-title">
             Специальности
         </div>

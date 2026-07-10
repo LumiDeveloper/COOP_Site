@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }} — КТТО</title>
+    <link rel="stylesheet" href="/static/css/header.css">
     <style>
         /* ===== БАЗОВЫЕ СТИЛИ СТРАНИЦЫ ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,30 +14,7 @@
             color: #1f2e3a;
         }
         .wrapper { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
-
-        /* ===== ШАПКА И НАВИГАЦИЯ ===== */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 3px solid #01AABD;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .logo img { height: 55px; width: auto; }
-        .nav { display: flex; gap: 24px; flex-wrap: wrap; }
-        .nav a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #1f2e3a;
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: 0.2s;
-        }
-        .nav a:hover { background: #01AABD; color: white; }
-
+    
         /* ===== ДВУХКОЛОНОЧНАЯ СЕТКА ===== */
         .news-layout {
             display: grid;
@@ -234,7 +212,6 @@
         @media (max-width: 960px) {
             .news-layout { grid-template-columns: 1fr; }
             .wrapper { padding: 0 20px; }
-            .header { flex-direction: column; text-align: center; }
             .news-title { font-size: 1.5rem; }
             .slider-container { height: 350px; }
             .modal .modal-arrow { width: 45px; height: 45px; font-size: 1.5rem; }
@@ -246,16 +223,7 @@
 
 <body>
 <div class="wrapper">
-    <div class="header">
-        <div class="logo"><img src="/static/src/logo.png" alt="Логотип" onerror="this.src='/src/logoKTTO.jpg'"></div>
-        <div class="nav">
-            <a href="/">Главная</a>
-            <a href="/about">О нас</a>
-            <a href="/admission">Поступление</a>
-            <a href="/students">Студентам</a>
-            <a href="/contacts">Контакты</a>
-        </div>
-    </div>
+    {% include "components/header.html" %}
 
     <!-- ОБЩИЙ ДВУХКОЛОНОЧНЫЙ КОНТЕЙНЕР -->
     <div class="news-layout">

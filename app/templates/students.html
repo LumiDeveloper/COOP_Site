@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КТТО — Студентам</title>
+    <link rel="stylesheet" href="/static/css/header.css">
     <style>
         * {
             margin: 0;
@@ -24,40 +25,6 @@
             padding: 0 30px
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 3px solid #01AABD;
-            flex-wrap: wrap;
-            gap: 20px
-        }
-
-        .logo img {
-            height: 55px
-        }
-
-        .nav {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #1f2e3a;
-            font-weight: 600;
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: .2s
-        }
-
-        .nav a:hover,
-        .nav .active {
-            background: #01AABD;
-            color: white
-        }
 
         .page-title {
             font-size: 2.4rem;
@@ -128,14 +95,6 @@
                 padding: 0 20px
             }
 
-            .header {
-                flex-direction: column
-            }
-
-            .nav {
-                justify-content: center
-            }
-
             .page-title {
                 text-align: center
             }
@@ -145,18 +104,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="header">
-            <div class="logo">
-                <img src="/static/src/logoKTTO.jpg" alt="Логотип">
-            </div>
-            <div class="nav">
-                <a href="/">Главная</a>
-                <a href="/about">О нас</a>
-                <a href="/admission">Поступление</a>
-                <a href="/students" class="active">Студентам</a>
-                <a href="/contacts">Контакты</a>
-            </div>
-        </div>
+        {% include "components/header.html" %}
 
         <div class="page-title">🎓 Студентам</div>
 

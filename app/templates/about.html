@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>КТТО — О нас</title>
+    <link rel="stylesheet" href="/static/css/header.css">
     <style>
         * {
             margin: 0;
@@ -24,80 +25,7 @@
             padding: 0 30px;
         }
 
-        /* ===== МЕНЮ ===== */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 3px solid #01AABD;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .logo img {
-            height: 55px;
-            object-fit: contain;
-        }
-
-        .nav{
-            display:flex;
-            align-items:center;
-            gap:24px;
-            flex-wrap:wrap;
-        }
-
-        .nav>a,.dropdown>a{
-            text-decoration:none;
-            font-weight:600;
-            color:#1f2e3a;
-            padding:8px 18px;
-            border-radius:50px;
-            transition:.2s;
-            display:block;
-        }
-
-        .nav>a:hover,.dropdown>a:hover{
-            background:#01AABD;
-            color:white;
-        }
-
-        .dropdown{
-            position:relative;
-        }
-
-        .dropdown-menu{
-            position:absolute;
-            top:100%;
-            left:0;
-            background:white;
-            min-width:220px;
-            border-radius:18px;
-            padding:12px;
-            box-shadow:0 15px 35px rgba(0,0,0,.12);
-            display:none;
-            z-index:100;
-        }
-
-        .dropdown:hover .dropdown-menu{
-            display:block;
-        }
-
-        .dropdown-menu a{
-            display:block;
-            text-decoration:none;
-            color:#1f2e3a;
-            padding:10px 14px;
-            border-radius:12px;
-            font-weight:500;
-        }
-
-        .dropdown-menu a:hover{
-            background:#01AABD;
-            color:white;
-        }
-
+ 
         /* ===== СТРАНИЦА ===== */
         .page-title {
             font-size: 2.4rem;
@@ -136,21 +64,6 @@
                 padding: 0 20px;
             }
 
-        .header {
-            flex-direction: column;
-            align-items: stretch;
-            text-align: center;
-        }
-
-        .nav {
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .nav a {
-            padding: 8px 14px;
-            background: #f0f6f8;
-        }
 
         .page-title {
             font-size: 1.8rem;
@@ -161,18 +74,13 @@
             padding: 40px 24px;
         }
 
-        
-
         }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="header">
-            <div class="logo"><img src="src/logoKTTO.jpg" alt="Логотип"></div>
-            {% include "components/navbar.html" %}
-        </div>
+        {% include "components/header.html" %}
 
         <div class="page-title">О нас</div>
         <div class="content-placeholder">
